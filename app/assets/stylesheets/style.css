@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* header */
+.header {
+  height: 80px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-name a{
+  font-size: 40px;
+  color: lightgoldenrodyellow;
+  text-decoration: none;
+  align-items: center;
+  margin-left: 10px;
+}
+
+nav ul {
+  display: flex;
+  width: 950px;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: lightgoldenrodyellow;
+  font-size: 20px;
+}
+
+/* footer */
+
+.footer {
+  background-color: lightsalmon;
+  padding: 10px 0;
+}
+.copyright {
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+}
