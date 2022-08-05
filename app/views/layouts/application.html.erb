@@ -4,12 +4,27 @@
     <title>Stock</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="header">
+      <div class="header-name">
+        <a href="#">すとっく</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">在庫一覧</a></li>
+          <li><a href="#">お買い物メモ</a></li>
+          <li><a href="#">発注</a></li>
+        </ul>
+      </nav>
+    </div>
     <%= yield %>
+    <footer class="footer">
+      <p class="copyright">Copyright © 2022 Stock</p>
+    </footer>
   </body>
 </html>
