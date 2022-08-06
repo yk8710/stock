@@ -19,12 +19,18 @@
           <li><a href="#">在庫一覧</a></li>
           <li><a href="#">お買い物メモ</a></li>
           <li><a href="#">発注</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
+        <% end %>
         </ul>
       </nav>
     </div>
     <%= yield %>
     <footer class="footer">
-      <p class="copyright">Copyright © 2022 Stock</p>
+      <p class="copyright">Copyright © 2022 すとっく</p>
     </footer>
   </body>
 </html>
