@@ -1,0 +1,34 @@
+<div class="contents row">
+  <div class="container">
+    <h2>アカウント情報編集</h2>
+    <%= form_with model: current_user, local: true do |f| %>
+
+      <div class="field">
+        <%= f.label "ニックネーム" %><br />
+        <%= f.text_field :nickname, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Eメール" %><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label "パスワード" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "パスワード（確認用）" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "アカウントを更新" %>
+      </div>
+    <% end %>
+  </div>
+</div>
