@@ -205,3 +205,6 @@ table {
   font-family: 'Kosugi Maru', sans-serif;
 }
 
+.post-name {
+  text-decoration: none;
+}

@@ -1,1 +1,39 @@
-<h1>posts#edit</h1>
+<div class="contents row">
+  <div class="container">
+
+    <h2>商品編集ページ</h2>
+
+    <%= form_for :post, url: post_path, method: :patch do |f| %>
+
+      <div class="field">
+        <%= f.label "商品名" %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "数量" %><br />
+        <%= f.text_field :quantity, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "カテゴリ" %><br />
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+      </div>
+
+      <div class="field">
+        <%= f.label "賞味期限" %><br />
+        <%= f.text_field :best_before, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "場所" %><br />
+        <%= f.text_field :location, autofocus: true %>
+      </div>
+      
+      <div class="field">
+        <%= f.submit "更新", class:"btn" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
