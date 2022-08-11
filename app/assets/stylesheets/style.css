@@ -145,4 +145,63 @@ form input[type="submit"] {
   text-align: center;
 }
 
+/* 在庫一覧画面 */
+
+.stock-center {
+  text-align: center;
+  margin: 35px 0;
+  font-size: 25px;
+  font-family: 'Kosugi Maru', sans-serif;
+  color: lightsalmon;
+}
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 15px;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+td {
+    text-align: center;
+    font-size: large;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+th[scope="col"] {
+    font-size: 28px;
+    background-color: lightgreen;
+    color: #fff;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: .8rem;
+  margin: 3px auto;
+}
+
+.stock-categories {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.post-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  color: #fff;
+  background-color: lightseagreen;
+  border-radius: 100vh;
+  padding: 20px;
+  text-decoration: none;
+  font-family: 'Kosugi Maru', sans-serif;
+}
 

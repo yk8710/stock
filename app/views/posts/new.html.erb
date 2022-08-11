@@ -1,1 +1,41 @@
-<h1>posts#new</h1>
+<div class="contents row">
+  <div class="container">
+
+    <h2>商品追加</h2>
+
+    <%= form_with(model: @post, local: true) do |form| %>
+
+    <%= render "shared/error_messages", model: form.object %>
+
+      <div class="field">
+        <%= form.label "商品名" %><br />
+        <%= form.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= form.label "数量" %><br />
+        <%= form.text_field :quantity, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= form.label "カテゴリ" %><br />
+        <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+      </div>
+
+      <div class="field">
+        <%= form.label "賞味期限" %><br />
+        <%= form.text_field :best_before, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= form.label "場所" %><br />
+        <%= form.text_field :location, autofocus: true %>
+      </div>
+      
+      <div class="field">
+        <%= form.submit "投稿する", class:"btn" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
