@@ -17,6 +17,7 @@
       <th scope="col">カテゴリー</th>
       <th scope="col">賞味期限</th>
       <th scope="col">場所</th>
+      <th scope="col">   </th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,7 @@
         <td><%= post.category.name %></td>
         <td><%= post.best_before %></td>
         <td><%= post.location %></td>
+        <td><%= link_to "削除", post_path(post.id), method: :delete, class:"post-name" %></td>
       </tr>
     <% end %>
   </tbody>
