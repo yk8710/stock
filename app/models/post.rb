@@ -5,4 +5,10 @@ class Post < ApplicationRecord
 
   validates :name, :quantity, presence:true
   validates :category_id, numericality: { other_than: 0} 
+
+  def self.search(search)
+    if search 
+      Post.where('name Like(?)', "%#{search}%")
+    end
+  end
 end

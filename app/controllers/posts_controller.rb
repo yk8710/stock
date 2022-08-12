@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_current_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :ensure_current_user, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.where(user_id: current_user.id).includes(:user).order("created_at DESC")
@@ -19,9 +19,6 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
-  def show
-  end
   
   def edit
   end
@@ -36,6 +33,10 @@ class PostsController < ApplicationController
 
   def destroy
     redirect_to posts_path if @post.destroy
+  end
+
+  def search
+    @posts = Post.where(user_id: current_user.id).search(params[:keyword])
   end
 
   private
