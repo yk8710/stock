@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:edit, :update, :destroy]
   before_action :ensure_current_user, only: [:edit, :update, :destroy]
+  before_action :search_category_post, only: [:index, :category, :search]
 
   def index
     @posts = Post.where(user_id: current_user.id).includes(:user).order("created_at DESC")
@@ -36,7 +37,13 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where(user_id: current_user.id).search(params[:keyword])
+    @posts = Post.where(user_id: current_user.id).search(params[:keyword]).order("created_at DESC")
+  end
+
+  def category
+    @posts = @q.result.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    category_id = params[:q][:category_id_eq]
+    @category = Category.find_by(id: category_id)
   end
 
   private
@@ -53,5 +60,9 @@ class PostsController < ApplicationController
     if @post.user_id != current_user.id
       redirect_to root_path
     end
+  end
+
+  def search_category_post
+    @q = Post.ransack(params[:q])
   end
 end

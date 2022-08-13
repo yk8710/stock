@@ -5,17 +5,15 @@
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
 
+<%= search_form_for @q, url: post_category_path do |f| %>
+    <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, include_blank: "カテゴリー検索" %>
+    <%= f.submit '検索', class: "search-btn" %>
+<% end %>
 
 <div class="post-submit">
   <%= link_to "商品追加", new_post_path, class:"btn" %>
 </div>
 
-<div class="stock-categories">
-    <h2>
-      カテゴリー一覧
-    </h2>
-      カテゴリーから探す
-</div>
 <table>
   <thead>
     <tr>
