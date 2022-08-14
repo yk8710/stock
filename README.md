@@ -19,7 +19,7 @@
 | ----------- | ---------- | -------------------------------- |
 | user        | references | null:false, foreign_key:true     |
 | name        | string     | null:false                       |
-| best_before | string     |                                  |
+| best_before | date       |                                  |
 | quantity    | integer    | null:false                       |
 | location    | string     |                                  |
 | category_id | integer    | null:false                       |
