@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+    attributes:
+      user:
+        name: 名前
+        address: 住所
+        phone: 電話番号
+        sex: 性別
+        mail_address: メールアドレス
+      post:
+        name: 商品名
+        quantity: 数量
+        category_id: カテゴリ

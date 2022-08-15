@@ -1,0 +1,43 @@
+<h1 class="stock-center">在庫一覧のページ</h1>
+
+<%= form_with(url: search_post_path(@posts), local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "商品を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
+<%= search_form_for @q, url: post_category_path do |f| %>
+    <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, include_blank: "カテゴリー検索" %>
+    <%= f.submit '検索', class: "search-btn" %>
+<% end %>
+
+
+<div class="post-submit">
+  <%= link_to "商品追加", new_post_path, class:"btn" %>
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">商品名</th>
+      <th scope="col">数量</th>
+      <th scope="col">カテゴリー</th>
+      <th scope="col">賞味期限</th>
+      <th scope="col">場所</th>
+      <th scope="col">   </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to post.name, edit_post_path(post.id), method: :get, class:"post-name" %></td>
+        <td><%= post.quantity %></td>
+        <td><%= post.category.name %></td>
+        <td><%= post.best_before %></td>
+        <td><%= post.location %></td>
+        <td><%= link_to "削除", post_path(post.id), method: :delete, class:"post-name" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
