@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:edit, :update]
+  resources :memos
   get '/post/category', to: "posts#category"
 end
