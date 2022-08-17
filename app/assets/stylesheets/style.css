@@ -222,3 +222,39 @@ table {
   width: 8%;
   margin-left: 30px;
 }
+
+/* メモ画面 */
+
+.memos-container {
+  padding: 10px 30px;
+}
+
+.botton {
+  text-align: right;
+}
+
+.split {
+  display: table;
+  width: 100%;
+}
+
+.split-item {
+  display: table-cell;
+  padding: 40px;
+  width: 10%;
+}
+
+.split-left {
+  position: relative;
+}
+
+.split-right {
+  position: relative;
+}
+
+.split-left__inner {
+  height: 100%;
+  position: fixed;
+  width: 80%;
+}
+
