@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'goods/search'
   devise_for :users
   root to: "top#index"
   resources :posts do
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :memos
   get '/post/category', to: "posts#category"
+  get '/goods/search'
 end
