@@ -15,13 +15,9 @@ class MemosController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
+    @memo = Memo.find(params[:id])
+    redirect_to memos_path if @memo.destroy
   end
 
   private

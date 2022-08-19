@@ -32,7 +32,7 @@
         <tbody>
           <% @memos.each do |memo| %>
             <tr>
-              <td><%= link_to memo.name, edit_memo_path(memo.id) %></td>
+              <td><%= memo.name %></td>
               <td><%= memo.contents %></td>
               <td><%= link_to "削除", memo_path(memo.id), method: :delete %></td>
             </tr>
