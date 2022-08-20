@@ -1,22 +1,42 @@
-<div class="memos-container">
-  <div class="split-item split-left">
-    <div class="split-left__inner">
-      <h3>商品追加</h3>
-      <%= form_with model: @memo, local: true do |form| %>
-        <div>
-          <%= form.label "商品名" %> <br />
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-3">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        メモ投稿
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">メモ投稿</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= form_with model: @memo, remote: true do |form| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <%= form.label "商品名" %> <br>
           <%= form.text_field :name %>
         </div>
-        <div>
-          <%= form.label "備考" %> <br />
-          <%= form.text_field :contents %>
+        <div class="form-group">
+          <%= form.label "備考" %> <br>
+          <%= form.text_area :contents %>
         </div>
-        <div>
-          <%= form.submit "追加" %>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= form.submit "追加", class:"btn btn-primary" %>
+      </div>
       <% end %>
     </div>
   </div>
+</div>
+
+
 
   <div class="split-item split-right">
     <div class="split-right__inner">

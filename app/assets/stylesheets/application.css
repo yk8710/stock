@@ -12,10 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= ./bootstrap_import
  */
 
  * {
   box-sizing: border-box;
 }
-
-@import "bootstrap";
