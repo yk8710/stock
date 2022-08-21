@@ -1,0 +1,24 @@
+<div class="split-item split-right">
+    <div class="split-right__inner">
+      <h1 class="text-center">メモリスト</h1>
+      <table class="table mt-4">
+        <thead>
+          <tr>
+            <th scope="col">商品</th>
+            <th scope="col">備考</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @memos.each do |memo| %>
+            <tr>
+              <td><%= memo.name %></td>
+              <td><%= memo.contents %></td>
+              <td><%= link_to "削除", memo_path(memo.id), method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

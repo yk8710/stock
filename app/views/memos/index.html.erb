@@ -5,6 +5,9 @@
         メモ投稿
       </button>
     </div>
+    <div class="col-9 memos">
+      <%= render 'memos', memos: @memos %>
+    </div>
   </div>
 </div>
 
@@ -16,52 +19,26 @@
         <h5 class="modal-title" id="exampleModalLabel">メモ投稿</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <%= form_with model: @memo, remote: true do |form| %>
+      <%= form_for @memo, remote: true do |f| %>
       <div class="modal-body">
         <div class="form-group">
-          <%= form.label "商品名" %> <br>
-          <%= form.text_field :name %>
+          <%= f.label "商品名" %> <br>
+          <%= f.text_field :name %>
         </div>
         <div class="form-group">
-          <%= form.label "備考" %> <br>
-          <%= form.text_area :contents %>
+          <%= f.label "備考" %> <br>
+          <%= f.text_area :contents %>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= form.submit "追加", class:"btn btn-primary" %>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+        <%= f.submit "追加", class:"btn btn-primary" %>
       </div>
       <% end %>
     </div>
   </div>
 </div>
 
-
-
-  <div class="split-item split-right">
-    <div class="split-right__inner">
-      <h1 class="text-center">買い物リスト</h1>
-      <table class="table mt-4">
-        <thead>
-          <tr>
-            <th scope="col">商品</th>
-            <th scope="col">備考</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @memos.each do |memo| %>
-            <tr>
-              <td><%= memo.name %></td>
-              <td><%= memo.contents %></td>
-              <td><%= link_to "削除", memo_path(memo.id), method: :delete %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
 
 
 
