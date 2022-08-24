@@ -19,7 +19,7 @@
 
       <div class="field">
         <%= form.label "カテゴリ" %><br />
-        <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+        <%= form.collection_select(:category_id, Category.all, :id, :name, {}) %>
       </div>
 
       <div class="field">
@@ -28,7 +28,7 @@
       </div>
 
       <div class="field">
-        <%= form.label "場所" %><br />
+        <%= form.label "保管場所" %><br />
         <%= form.text_field :location, autofocus: true %>
       </div>
       

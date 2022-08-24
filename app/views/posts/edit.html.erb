@@ -17,7 +17,7 @@
 
       <div class="field">
         <%= f.label "カテゴリ" %><br />
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}) %>
       </div>
 
       <div class="field">
@@ -26,7 +26,7 @@
       </div>
 
       <div class="field">
-        <%= f.label "場所" %><br />
+        <%= f.label "保管場所" %><br />
         <%= f.text_field :location, autofocus: true %>
       </div>
       
