@@ -179,6 +179,11 @@ form input[type="submit"]:not(.btn) {
   text-align: center;
 }
 
+.error-message {
+  color: red;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
 /* 在庫一覧画面 */
 
 
