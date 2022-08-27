@@ -10,28 +10,52 @@
   </head>
 
   <body>
-    <div class="header">
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: lightblue;">
+      <div class="container-fluid">
       <div class="header-name">
-        <%= link_to "すとっく", root_path %>
+        <%= link_to "すとっく", root_path, class: "navbar-brand" %>
       </div>
-      <nav>
-        <ul>
-          <li><%= link_to "在庫一覧", posts_path %></li>
-          <li><%= link_to "お買い物メモ", memos_path %></li>
-          <li><%= link_to "発注", items_search_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :get %></li>
-          <li><%= link_to current_user.nickname, edit_user_path(current_user) %></li>
-        <% else %>
-          <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
-        <% end %>
-        </ul>
-      </nav>
-    </div>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to "在庫一覧", posts_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "お買い物メモ", memos_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "発注", items_search_path %>
+            </li>
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :get %>
+            </li>
+            <li class="nav-item">
+              <%= link_to current_user.nickname, edit_user_path(current_user) %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_user_registration_path %>
+            </li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  
+
+
     <%= yield %>
-    <footer class="text-center p-2 fixed-bottom">
-      <p class="copyright">Copyright © 2022 すとっく</p>
-    </footer>
+    <div class="footer">
+      <footer class="text-center fixed-bottom">
+        <p class="copyright">Copyright © 2022 すとっく</p>
+      </footer>
+    </div>
   </body>
 </html>

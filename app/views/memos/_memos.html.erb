@@ -1,6 +1,6 @@
 <div class="split-item split-right">
     <div class="split-right__inner">
-      <h1 class="text-center">メモリスト</h1>
+      <h1 class="stock-center">お買い物リスト</h1>
       <table class="table mt-4">
         <thead>
           <tr>
@@ -14,7 +14,7 @@
             <tr>
               <td><%= memo.name %></td>
               <td><%= memo.contents %></td>
-              <td><%= link_to "削除", memo_path(memo.id), method: :delete %></td>
+              <td><%= link_to "削除", memo_path(memo.id), method: :delete, class: "btn btn-outline-danger" %></td>
             </tr>
           <% end %>
         </tbody>

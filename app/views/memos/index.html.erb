@@ -1,12 +1,14 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-3">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        メモ投稿
-      </button>
-    </div>
-    <div class="col-9 memos">
-      <%= render 'memos', memos: @memos %>
+<div class="memo-container">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          メモ投稿
+        </button>
+      </div>
+      <div class="col-9 memos">
+        <%= render 'memos', memos: @memos %>
+      </div>
     </div>
   </div>
 </div>
