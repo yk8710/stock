@@ -1,29 +1,33 @@
 <h1 class="stock-center">在庫一覧のページ</h1>
 
-<%= form_with(url: search_post_path(@posts), local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "商品を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
-
-<%= search_form_for @q, url: post_category_path do |f| %>
-    <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, include_blank: "カテゴリー検索" %>
-    <%= f.submit '検索', class: "search-btn" %>
-<% end %>
+  <div class="row g3 mb-3 justify-content-center">
+    <div class="col-4 col-xl-3">
+      <%= form_with(url: search_post_path(@posts), local: true, method: :get, class: "d-flex") do |f| %>
+        <%= f.search_field :keyword, placeholder: "商品を検索する", class: "form-control me-2" %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="col-4 col-xl-2">
+      <%= search_form_for @q, url: post_category_path, class: "d-flex" do |f| %>
+        <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, {include_blank: "カテゴリ検索"}, class: "form-select form-select-sm mb-3 me-2" %>
+        <%= f.submit '検索', class: "btn btn-primary mb-3" %>
+      <% end %>
+    </div>
+  </div>
 
 
 <div class="post-submit">
-  <%= link_to "商品追加", new_post_path, class:"btn" %>
+  <%= link_to "商品追加", new_post_path, class:"btn btn-success btn-lg" %>
 </div>
 
-
-<table>
+<table class="table table-striped table-bordered border-info">
   <thead>
-    <tr>
+    <tr class="table-info">
       <th scope="col">商品名</th>
       <th scope="col">数量</th>
-      <th scope="col">カテゴリー</th>
+      <th scope="col">カテゴリ</th>
       <th scope="col">賞味期限</th>
-      <th scope="col">場所</th>
+      <th scope="col">保管場所</th>
       <th scope="col">   </th>
     </tr>
   </thead>
@@ -35,9 +39,8 @@
         <td><%= post.category.name %></td>
         <td><%= post.best_before %></td>
         <td><%= post.location %></td>
-        <td><%= link_to "削除", post_path(post.id), method: :delete, class:"post-name" %></td>
+        <td><%= link_to "削除", post_path(post.id), method: :delete, class: "btn btn-outline-danger"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-

@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= ./bootstrap_import
+ *= require bootstrap/dist/css/bootstrap.min.css
  */
 
  * {

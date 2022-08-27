@@ -1,5 +1,5 @@
 <div class="contents row">
-  <div class="container">
+  <div class="container-1">
 
     <h2>商品編集ページ</h2>
 
@@ -17,7 +17,7 @@
 
       <div class="field">
         <%= f.label "カテゴリ" %><br />
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}) %>
       </div>
 
       <div class="field">
@@ -26,12 +26,12 @@
       </div>
 
       <div class="field">
-        <%= f.label "場所" %><br />
+        <%= f.label "保管場所" %><br />
         <%= f.text_field :location, autofocus: true %>
       </div>
       
       <div class="field">
-        <%= f.submit "更新", class:"btn" %>
+        <%= f.submit "更新" %>
       </div>
 
     <% end %>

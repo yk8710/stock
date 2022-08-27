@@ -7,12 +7,8 @@ class MemosController < ApplicationController
   end
 
   def create
-    @memo = Memo.new(memo_params)
-    if @memo.save
-      redirect_to memos_path
-    else
-      redirect_to memos_path
-    end
+    Memo.create(memo_params)
+    @memos = Memo.where(user_id: current_user.id).includes(:user).order("created_at DESC")
   end
 
   def destroy
