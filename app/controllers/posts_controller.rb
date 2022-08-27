@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :search_category_post, only: [:index, :category, :search]
 
   def index
-    @posts = Post.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @posts = Post.where(user_id: current_user.id).includes(:user).order('created_at DESC')
   end
 
   def new
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
   end
 
@@ -37,11 +37,11 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where(user_id: current_user.id).search(params[:keyword]).order("created_at DESC")
+    @posts = Post.where(user_id: current_user.id).search(params[:keyword]).order('created_at DESC')
   end
 
   def category
-    @posts = @q.result.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @posts = @q.result.where(user_id: current_user.id).includes(:user).order('created_at DESC')
     category_id = params[:q][:category_id_eq]
     @category = Category.find_by(id: category_id)
   end
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :best_before, :quantity, :location, :category_id).merge(user_id:current_user.id)
+    params.require(:post).permit(:name, :best_before, :quantity, :location, :category_id).merge(user_id: current_user.id)
   end
 
   def set_post
@@ -57,9 +57,7 @@ class PostsController < ApplicationController
   end
 
   def ensure_current_user
-    if @post.user_id != current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if @post.user_id != current_user.id
   end
 
   def search_category_post
