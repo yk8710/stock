@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
       @user.password = '123abc'
       @user.password_confirmation = '123abc'
       expect(@user).to be_valid
-    end 
+    end
   end
 
   context '新規登録ができないとき' do

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action:authenticate_user!
+  before_action :authenticate_user!
 
   def edit
   end
@@ -18,5 +18,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
   end
-
 end
