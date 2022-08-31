@@ -33,7 +33,7 @@ nav ul li a {
 }
 
 footer {
-  background-color: lightsalmon
+  background-color: lightsalmon;
 }
 
 .copyright {
@@ -54,7 +54,8 @@ footer {
 .main-container{
     position:relative;
     max-width: 1170px;
-    margin-left:auto;margin-right:auto;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 img{
@@ -204,7 +205,7 @@ th {
 
 td {
     text-align: center;
-    font-size: large;
+    font-size: 18px;
 }
 
 
