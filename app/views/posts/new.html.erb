@@ -3,7 +3,7 @@
 
     <h2>商品追加</h2>
 
-    <%= form_with(model: @post, local: true) do |form| %>
+    <%= form_with(model: @post, local: true, class: "new_user") do |form| %>
 
     <%= render "shared/error_messages", model: form.object %>
 
