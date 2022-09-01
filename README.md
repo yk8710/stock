@@ -1,40 +1,80 @@
-# テーブル設計
+# アプリケーション名
+すとっく
 
-## Users テーブル
+# アプリケーション概要
+ 家庭内で日常的に使用する日用品や食品などのいわゆる消耗品の在庫を管理できるアプリ。
 
-| Column | Type     | Options                        |
-| ---------| -------| ------------------------------ |
-| nickname | string | null:false                     |
-| email    | string | null:false                     |
-| password | string | null:false                     |
+# URL
+※本番環境にデプロイ出来次第記載
 
-### Association
-- has_many :posts
-- has_many :memos
+# テスト用アカウント
+※実装出来次第記載
+
+# 利用方法
+## 在庫管理機能
+1.トップページのヘッダーから新規登録を行う。
+2.ヘッダーの在庫一覧をクリック、商品投稿ボタンをクリックして商品の内容を入力して投稿できる。（商品名、数量、カテゴリは必須、賞味期限、保管場所は任意）
+3.投稿した内容は編集と削除もできる。
+4.投稿した内容を入力して検索できるフォームとカテゴリ一覧を選んで検索できる二つの検索フォームあり。
+## メモ機能
+1.ヘッダーのお買い物メモをクリック、メモ投稿ボタンをクリックするとモーダルウィンドウが出てくるので内容を入力して投稿。（商品名と備考）
+2.投稿した内容を削除も可能
+## 発注機能
+1.ヘッダーの発注をクリック、検索フォームで欲しい商品名を入力すると大手ECサイトの商品データを取得した検索結果が出力され、そこから大手ECサイトの商品ページに飛ぶことも可能。
+
+# アプリケーションを作成した背景
+・日常生活で普段何気なく使っている消耗品に対しては在庫を管理していることはなく、必要に迫られた時や使いたい時に無いことに気づいてしまったり、買い物に行った先でも必要なものを書い忘れたりといったことが自分自身多いと感じていたので、そういった日常生活での課題を解決することを目指して作成。
+
+# 洗い出した要件
+[要件定義](https://docs.google.com/spreadsheets/d/1Ey6ywod8NU5kinXYfeiFtsyxIjPwoZg9mi0ACJaUQX8/edit#gid=982722306)
+
+# 使用イメージ
+
+## ・トップページ
+[![Image from Gyazo](https://i.gyazo.com/f613e8b7390c011d6f29f42ff0930421.gif)](https://gyazo.com/f613e8b7390c011d6f29f42ff0930421)
+
+## ・在庫一覧ページ
+[![Image from Gyazo](https://i.gyazo.com/8d99516513b0351f8f27d88616dc5284.gif)](https://gyazo.com/8d99516513b0351f8f27d88616dc5284)
+
+### ・工夫した点
+カテゴリごとに投稿した内容を検索できるフォーム。商品名を直接入力して検索できるフォームも用意してはいるが、入力の手間を省けさせる選択肢として用意。
 
 
-## Posts テーブル
+## ・お買い物メモページ
+[![Image from Gyazo](https://i.gyazo.com/efb251373664aeac2e7725f8a0f9e4b7.gif)](https://gyazo.com/efb251373664aeac2e7725f8a0f9e4b7)
 
-| Column      | Type       | Options                          |
-| ----------- | ---------- | -------------------------------- |
-| user        | references | null:false, foreign_key:true     |
-| name        | string     | null:false                       |
-| best_before | date       |                                  |
-| quantity    | integer    | null:false                       |
-| location    | string     |                                  |
-| category_id | integer    | null:false                       |
+### ・工夫した点
+メモ投稿を非同期化。在庫一覧の商品投稿とは違って詳細の入力事項が少ないことや、素早く済ませられるようユーザーの負担軽減を目指し画面遷移やリロードなしでできるようにした。
 
-### Association
-- belongs_to :user
+## ・発注ページ
+[![Image from Gyazo](https://i.gyazo.com/62841ecd495f33176bfc79649babfec4.gif)](https://gyazo.com/62841ecd495f33176bfc79649babfec4)
+
+### ・工夫した点
+楽天APIを導入した商品検索機能。楽天の商品データから直接サイトのページに飛ぶこともできる。必要なものを実店舗だけでなく通販でも探して買う選択肢をアプリ内に実装したいと考えたため。
+
+# 実装予定の機能
+ページネーション機能を実装予定。現状それぞれの機能のページでは1ページ分でしか表示できない状態なのでもっと見やすくできるようにしていきたい。
+
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/21a863b0176ea068fa574ce644cd045d.png)](https://gyazo.com/21a863b0176ea068fa574ce644cd045d)
+
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/bff8fd969bcd16cc7ef84787799cdfc0.png)](https://gyazo.com/bff8fd969bcd16cc7ef84787799cdfc0)
 
 
-## Memos テーブル
+# 使用技術
 
-| Column       |            | Options                         |
-| ------------ | ---------- | ------------------------------- |
-| user         | references | null:false, foreign_key:true    |
-| name         | string     | null:false                      |
-| contens      | string     |                                 |
+・フロントエンド:HTML/CSS/SCSS/Javascript
 
-### Association
-- belonges_to :user
+・フレームワーク:Bootstrap/Jquery
+
+・バックエンド:Ruby 2.6.5
+
+・フレームワーク:Ruby on Rails 6.0.5.1
+
+・インフラ:Heroku
+
+・DB:MySQL 5.6.51
+
+・テキストエディタ:Visual Studio Code
+
