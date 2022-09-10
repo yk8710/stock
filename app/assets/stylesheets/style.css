@@ -305,9 +305,10 @@ th[scope="col"] {
   padding-right: 15px;
   line-height: 1.5;
   padding-left: 15px;
-  font-size: 0.7rem;
+  font-size: 1.0rem;
   color: #707070;
   text-decoration: none;
+  margin-top: 50px;
 }
 
 /* 価格 */

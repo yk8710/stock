@@ -2,14 +2,16 @@
   <% @items.each do |item| %>
     <div class="col">
       <div class="card" style="width: 18rem;">
-        <div id="rakutenItem">
-          <%= image_tag (item['smallImageUrls'][0]) %>
-        </div>
-        <div class="productName">
-          <%= link_to item.name, "#{item.url}", class: "card-text" %>
-        </div>
-        <div class="productPrice">
-          <%= number_with_delimiter(item.price) %>円
+        <div class="card-body">
+          <div id="rakutenItem">
+            <%= image_tag (item['mediumImageUrls'][0]), class: "d-block mx-auto" %>
+          </div>
+          <div class="productName">
+            <%= link_to item.name, "#{item.url}", class: "card-text" %>
+          </div>
+          <div class="productPrice">
+            <%= number_with_delimiter(item.price) %>円
+          </div>
         </div>
       </div>
     </div>
