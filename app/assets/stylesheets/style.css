@@ -333,3 +333,25 @@ th[scope="col"] {
   font-family: 'Kosugi Maru', sans-serif;
 }
 
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.pagination > li > a {
+  border: none;
+  color: lightslategray;
+}
+.pagination > li > a:hover {
+  color: lightblue;
+  background-color: white;
+}
+.pagination > .active > a {
+  color: lightblue;
+  background-color: white;
+}
+.pagination > .active > a:hover {
+  background-color: white;
+  color: lightblue;
+}
+/* --ページネーション */
