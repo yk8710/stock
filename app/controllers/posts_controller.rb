@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   before_action :search_category_post, only: [:index, :category, :search]
 
   def index
-    @posts = Post.where(user_id: current_user.id).includes(:user).order('created_at DESC')
+    @posts = Post.where(user_id: current_user.id).includes(:user)
+    .order('created_at DESC').page(params[:page]).per(10)
   end
 
   def new
