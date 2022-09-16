@@ -2,7 +2,7 @@ class MemosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @memos = Memo.where(user_id: current_user.id).includes(:user).order('created_at DESC')
+    @memos = Memo.where(user_id: current_user.id).includes(:user).order('created_at DESC').page(params[:page]).per(10)
     @memo = Memo.new
   end
 
